@@ -1,0 +1,21 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <input type="text" placeholder="Digite seu nome" name="nome" 
+    [(ngModel)]="nome" required 
+    [class.is-invalid]="exibeErro('nome', form)" #nomeInput />
+     <div *ngIf="exibeErro('nome', form)" class="invalid-feedback"> Nome inválido. </div>
+
+    <input type="email" placeholder="Digite seu e-mail" name="email" 
+    ngModel required email [class.is-invalid]="exibeErro('email', form)" #emailInput />
+    <div *ngIf="exibeErro('email', form)" class="invalid-feedback"> E-mail inválido. </div>
+
+    <input type="password" placeholder="Digite sua senha" name="senha" 
+    ngModel required [class.is-invalid]="exibeErro('senha', form)" #senhaInput />
+    <div *ngIf="exibeErro('senha', form)" class="invalid-feedback"> Senha inválida. </div> 
+
+    <input type="text" placeholder="Digite seu CPF" name="cpf" 
+    ngModel required [class.is-invalid]="exibeErro('cpf', form)" #cpfInput />
+    <div *ngIf="exibeErro('cpf', form)" class="invalid-feedback"> CPF inválido. </div>
+    
+    <button type="submit">Cadastrar</button>
+</form>
